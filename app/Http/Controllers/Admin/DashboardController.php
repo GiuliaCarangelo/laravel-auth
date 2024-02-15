@@ -9,8 +9,9 @@ use PhpParser\Node\Stmt\Return_;
 
 class DashboardController extends Controller
 {
-    public function index(){
-        return view('admin.dashboard');
+    public function redirectToDashboardFromHome()
+    {
+        return redirect()->route('dashboard');
     }
 }
 

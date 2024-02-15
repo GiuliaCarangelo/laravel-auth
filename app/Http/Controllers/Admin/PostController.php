@@ -3,16 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Project;
 use Illuminate\Http\Request;
+// use App\Models\Project
 
 class PostController extends Controller
 {
     /**
      * Show the form for creating the resource.
      */
-    public function create(): never
+    public function index()
     {
-        abort(404);
+        $projects = Project::all();
+        return view('admin.projects.index', ['projects' => $projects ] );
     }
 
     /**
