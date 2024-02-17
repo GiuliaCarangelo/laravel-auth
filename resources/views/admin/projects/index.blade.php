@@ -6,7 +6,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="text-start">Projects</h1>
+                <h1 class="text-start d-inline-block pb-2">Projects</h1>
+
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -18,17 +19,35 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
-                        @foreach ( $projects as $index=>$project )
-                            <tr>
-                                <th scope="col"> {{ $index }} </th>
-                                <th scope="col">{{ $project->name }}</th>
-                                <th scope="col">{{ $project->programming_languages }}</th>
-                                <th scope="col">{{ $project->repo_url }}</th>
-                                <th scope="col">{{ $project->creation_day }}</th>
-                            </tr>
+                        @foreach ( $projects as $project ) 
+                        {{-- $index=> --}}
+                        <tr>
+                            <td scope="col"> {{ $loop->iteration }} </td>
+                            <td scope="col">{{ $project->name }}</td>
+                            <td scope="col">{{ $project->programming_languages }}</td>
+                            <td scope="col">{{ $project->repo_url }}</td>
+                            <td scope="col">{{ $project->creation_day }}</td>
+                            <td class="text-center">
+                                <a href="{{ route('project.show', $project) }}">
+                                    <button class="btn btn-success me-1">
+                                        Open
+                                    </button>
+                                </a>
+                                <a href="">
+                                    <button class="btn btn-warning me-1">
+                                        Edit
+                                    </button>
+                                </a>
+                                <a href="">
+                                    <button class="btn btn-danger fw-bold me-1">
+                                        Delete
+                                    </button>
+                                </a>
+
+                            </td>
+                        </tr>
                         @endforeach
-                        
+                        <h1>{{ $projects->count() }}</h1>
                     </tbody>
                 </table>
             </div>

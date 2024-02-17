@@ -6,12 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Stmt\Return_;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
-    public function redirectToDashboardFromHome()
-    {
-        return redirect()->route('dashboard');
+    public function index(){
+        return view('admin.dashboard');
     }
-}
-
+    public function show(){
+        return view('admin.projects.show');
+    }
+};
