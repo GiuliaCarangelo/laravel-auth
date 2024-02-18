@@ -23,12 +23,16 @@
                         {{-- $index=> --}}
                         <tr>
                             <td scope="col"> {{ $loop->iteration }} </td>
-                            <td scope="col">{{ $project->name }}</td>
+                            <a href="{{ route('admin.projects.show', $project) }}">
+                                <td scope="col">{{ $project->name }}</td>
+                            </a>
                             <td scope="col">{{ $project->programming_languages }}</td>
-                            <td scope="col">{{ $project->repo_url }}</td>
+                            <a href="{{ $project->repo_url }}">
+                                <td scope="col">{{ $project->repo_url }}</td>
+                            </a>
                             <td scope="col">{{ $project->creation_day }}</td>
                             <td class="text-center">
-                                <a href="{{ route('project.show', $project) }}">
+                                <a href="{{ route('admin.projects.show', $project) }}">
                                     <button class="btn btn-success me-1">
                                         Open
                                     </button>

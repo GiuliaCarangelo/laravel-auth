@@ -20,12 +20,25 @@ class ProjectController extends Controller
         return view('admin.projects.index', ['projects' => $projects ] );
     }
 
+    public function create()
+{
+    $project = new Project();
+    return view('admin.projects.create', compact('project'));
+}
+
     /**
      * Store the newly created resource in storage.
      */
-    public function store(Request $request): never
+    public function store(Request $request)
     {
-        abort(404);
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $data = $request->all();
+        $project = Project::create($data);
+    
+        return redirect()->route('admin.projects.show', ['project' => $project->id]);
     }
 
     /**

@@ -40,9 +40,9 @@
         </div>
             
         <div class="col-10">
-            <a href="{{ route('project.show', $project->id) }}">
+            <a href="{{ route('admin.projects.show', $project->id) }}">
                 <h3>
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('admin.admin.dashboard') }}">
                         <button type="button" class="btn btn-outline-primary btn-md my-4" disabled>
                             Altri post di {{ Auth::user()->name }}
                         </button>
