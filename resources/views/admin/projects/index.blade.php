@@ -37,7 +37,7 @@
                                         Open
                                     </button>
                                 </a>
-                                <a href="">
+                                <a href="{{ route('admin.projects.edit', $project) }}">
                                     <button class="btn btn-warning me-1">
                                         Edit
                                     </button>
@@ -51,9 +51,17 @@
                             </td>
                         </tr>
                         @endforeach
-                        <h1>{{ $projects->count() }}</h1>
+                        
+                        <h2>Total: {{ $projects->count() }}</h2>
                     </tbody>
                 </table>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="button" class="btn btn-primary btn-lg">
+                    <a class=" text-decoration-none text-white" href="{{ route('admin.projects.create') }}">
+                        Create New Project
+                    </a>
+                </button>
+                </div>
             </div>
         </div>
     </div>

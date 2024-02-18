@@ -52,17 +52,20 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the resource.
      */
-    public function edit()
+    public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('projec'));
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
      * Update the resource in storage.
      */
-    public function update(Request $request)
+    public function update(Request $request, Project $project)
     {
-        //
+        $data = $request->all();
+        $project->update($data);
+
+        return redirect()->route('admin.projects.show', $project);
     }
 
     /**

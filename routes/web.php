@@ -33,7 +33,7 @@ Route::middleware('auth')
     ->prefix('admin')
     ->group(function () {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-        Route::resource('/posts', AdminProjectController::class);
+        Route::resource('/projects', AdminProjectController::class);
         Route::get('/dashboard', [AdminProjectController::class, 'index'])->name('admin.dashboard');
         Route::resource('/projects', AdminProjectController::class);
     });

@@ -32,7 +32,7 @@
         </div>
 
         <div class="col-2 px-0">
-            <a class="row">
+            <a href="{{ route('admin.projects.edit', $project) }}" class="row">
                 <button class="btn btn-sm btn-success rounded-1 link-underline-dark">
                     Edit
                 </button>
