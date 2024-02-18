@@ -42,12 +42,13 @@
                                         Edit
                                     </button>
                                 </a>
-                                <a href="">
-                                    <button class="btn btn-danger fw-bold me-1">
-                                        Delete
-                                    </button>
-                                </a>
-
+                                <form class="d-inline-block" action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                        <button class="btn btn-danger fw-bold me-1">
+                                            Delete
+                                        </button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

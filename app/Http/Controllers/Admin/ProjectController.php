@@ -71,8 +71,9 @@ class ProjectController extends Controller
     /**
      * Remove the resource from storage.
      */
-    public function destroy(): never
+    public function destroy(Project $project)
     {
-        abort(404);
+        $project->delete();
+        return redirect()->route('admin.projects.index');
     }
 }

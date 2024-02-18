@@ -32,11 +32,18 @@
         </div>
 
         <div class="col-2 px-0">
-            <a href="{{ route('admin.projects.edit', $project) }}" class="row">
-                <button class="btn btn-sm btn-success rounded-1 link-underline-dark">
+            <a href="{{ route('admin.projects.edit', $project) }}" class="me-2">
+                <button class="btn btn-md btn-success rounded-1 link-underline-dark">
                     Edit
                 </button>
             </a>
+            <form class="d-inline-block" action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                    <button class="btn btn-danger fw-bold me-1">
+                        Delete
+                    </button>
+            </form>
         </div>
             
         <div class="col-10">
